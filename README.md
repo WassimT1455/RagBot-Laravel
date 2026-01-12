@@ -1,59 +1,163 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🤖 RAGBot - Assistant Documentaire Intelligent
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> **[Français](#français) | [English](#english)**
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Français
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 📋 Description
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**RAGBot** est un assistant conversationnel intelligent qui utilise la technologie **RAG (Retrieval-Augmented Generation)** pour répondre à vos questions en se basant sur vos documents personnels et/ou des recherches web en temps réel.
 
-## Learning Laravel
+**Cas d'usage :**
+- 📚 Interroger une bibliothèque de documents (PDF, DOCX, TXT, CSV)
+- 🔍 Obtenir des réponses contextualisées et sourcées
+- 💬 Maintenir des conversations multi-tours avec historique
+- 📥 Exporter vos conversations en plusieurs formats
+- 🌐 Combiner connaissances locales et recherches web
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### ✨ Fonctionnalités
 
-## Laravel Sponsors
+#### 🎯 Cœur du système
+- **💬 Gestion de conversations** : Créez, sauvegardez et organisez plusieurs conversations
+- **📚 Indexation intelligente** : Upload et vectorisation automatique de documents
+- **🔍 RAG avancé** : Recherche sémantique dans ChromaDB avec score de pertinence
+- **🌐 Recherche hybride** : Combine documents locaux et recherche web (Serper/Tavily)
+- **💾 Historique persistant** : SQLite pour sauvegarder toutes vos conversations
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+### 🛠️ Stack Technique
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+**Backend (Python/FastAPI)**
+- **FastAPI** : API REST haute performance
+- **LangChain** : Framework pour applications LLM
+- **ChromaDB** : Base de données vectorielle pour le RAG
+- **SQLite** : Stockage de l'historique des conversations
+- **Python-dotenv** : Gestion sécurisée des variables d'environnement
 
-## Contributing
+**Frontend (Vanilla)**
+- **HTML5/CSS** : Interface responsive
+- **JavaScript** : Logique client sans framework
+- **Design** : Dark mode moderne et épuré
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**LLM Providers supportés**
+- Ollama (local, gratuit)
 
-## Code of Conduct
+**Recherche Web**
+- Serper API (Google Search)
+- Tavily API (optimisée pour LLM)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+### 📦 Installation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Prérequis
 
-## License
+- **Python 3.9+** : [Télécharger Python](https://www.python.org/downloads/)
+- **pip** : Gestionnaire de paquets Python (inclus avec Python)
+- **Git** : [Télécharger Git](https://git-scm.com/)
+- **Serveur web** : Apache (XAMPP) ou Python `http.server`
+- **Clé API LLM** : OpenAI, Anthropic ou Ollama local
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Installation pas à pas
+
+##### 1️⃣ Cloner le repository
+
+```bash
+# Cloner dans votre dossier de projets
+git clone https://github.com/votre-username/ragbot.git
+cd ragbot
+```
+
+##### 2️⃣ Créer un environnement virtuel
+
+```bash
+# Créer l'environnement
+python -m venv venv
+
+# Activer l'environnement
+# Windows:
+venv\Scripts\activate
+
+# Mac/Linux:
+source venv/bin/activate
+```
+
+##### 3️⃣ Installer les dépendances
+
+```bash
+# Installer tous les packages requis
+pip install -r requirements.txt
+
+# Vérifier l'installation
+pip list
+```
+
+##### 4️⃣ Configuration des variables d'environnement
+
+```bash
+# Copier le fichier exemple
+cp .env.example .env
+
+# Éditer avec votre éditeur préféré
+# Windows: notepad .env
+# Mac/Linux: nano .env
+```
+
+**Configurer votre `.env` :**
+
+```env
+# API Configuration
+API_HOST=0.0.0.0
+API_PORT=8000
+CORS_ORIGINS=http://localhost:8080,http://localhost,http://127.0.0.1:8080
+
+# Paths
+DATA_PATH=./data
+CHROMA_PATH=./chroma
+
+# LLM Provider (choisir UN provider)
+OPENAI_API_KEY=sk-votre-clé-openai-ici
+
+# Model Settings
+MODEL_NAME=gpt-4
+TEMPERATURE=0.7
+
+# Recherche Web (optionnel)
+SERPER_API_KEY=votre-clé-serper-ici
+```
+
+##### 5️⃣ Démarrer le backend
+
+```bash
+# Depuis la racine du projet
+python api.py
+```
+
+**✅ Vous devriez voir :**
+```
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process
+```
+
+##### 6️⃣ Démarrer le frontend
+
+**Option A : Avec Python (recommandé pour développement)**
+```bash
+# Dans un nouveau terminal
+python -m http.server 8080
+
+# Frontend accessible sur : http://localhost:8080
+```
+
+**Option B : Avec XAMPP (si déjà installé)**
+```bash
+# Copier index.html dans C:/xampp/htdocs/
+# Démarrer Apache depuis XAMPP Control Panel
+# Frontend accessible sur : http://localhost/index.html
+```
+
